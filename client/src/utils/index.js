@@ -22,14 +22,14 @@ const utils = {
             message: message.message
         }
     },
-
     async fetchStoredData() {
         const storedData = await this.contract.storedData_().call();
         return storedData;
     },
-
-    async submitRegister(userInfo, schoolCode) {
-      await this.contract.register().call();
+    async submitRegister() {
+      const _message = "Test User Info";
+      await this.contract.register(_message).call();
+      return true;
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();

@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 
+import Utils from '../utils';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -38,10 +40,15 @@ const styles = theme => ({
 });
 
 class Fail extends Component {
+  submitInfo: Function = async () => {
+    console.log('submit');
+    await Utils.submitRegister();
+    console.log('submit_finished');
+  }
   render() {
     const { classes } = this.props;
     const RetryBtn = withRouter(({ history }) => (
-        <Button variant="contained" color="primary" className={ classes.button } onClick={() => { history.push('/cert') }}>
+        <Button variant="contained" color="primary" className={ classes.button } onClick={this.submitInfo}>
           再次提交
         </Button>
       ));
