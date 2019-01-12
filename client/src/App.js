@@ -170,7 +170,7 @@ class App extends Component {
             <Route path="/fail" component={Fail} />
             <Route path="/processing" component={Processing} />
           </main>
-          <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
+         
         </div>
       </Router>
     );
