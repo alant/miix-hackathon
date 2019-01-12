@@ -138,6 +138,7 @@ class App extends Component {
       }
 
       Utils.setTronWeb(window.tronWeb);
+      
       // let data = await Utils.fetchStoredData();
       // data = data.toNumber()
       // console.log("===> storedData: ", data);
@@ -174,7 +175,7 @@ class App extends Component {
             <Route path="/fail" component={Fail} />
             <Route path="/processing" component={Processing} />
           </main>
-          <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
+         
         </div>
       </Router>
     );
