@@ -16,6 +16,7 @@ contract Registration {
         string eventName,
         address user
     );
+    event RegistSuccess(address user, string registInfo);
 
     
     //报名的target
@@ -50,6 +51,8 @@ contract Registration {
     EventToSignIn[] public events;
     mapping(address => User) users;
     uint userCount;
+    mapping(address => string) public registry;
+
     constructor() public {
         owner = msg.sender;
     }
@@ -67,13 +70,13 @@ contract Registration {
 
     function registerOrg(string name, string info) public onlyAdmin {
         require(owner == msg.sender);
-            uint id = orgs.length;
-            orgs.push(Organisation({
-                id: id,
-                name: name, 
-                info: info,
-                admin: msg.sender
-            }));
+        uint id = orgs.length;
+        orgs.push(Organisation({
+            id: id,
+            name: name, 
+            info: info,
+            admin: msg.sender
+        }));
         emit RegistOrgEvent(id,name);
     }
 
@@ -88,26 +91,34 @@ contract Registration {
             admin: msg.sender,
             pubKey: pubKey,
             status: 1, //默认添加即开启
-            deadLineHeight: block.number+20000, // 
+            deadLineHeight: block.number+20000,
             registor: new address[](0)
         }));
 
         emit IssueEvent(id,orgs[orgId].name, name);
-  }
+    }
 
     function regist(uint eventId, string registInfo)public {
-            if (users[msg.sender].id == 0){
-                userCount = userCount + 1;
-                users[msg.sender] = User({
+        if (users[msg.sender].id == 0){
+            userCount = userCount + 1;
+            users[msg.sender] = User({
                 id: userCount,
                 events: new uint[](0)
-                });
-            }
-            users[msg.sender].events.push(eventId);
-            events[eventId].registor.push(msg.sender);
-            events[eventId].registInfo[msg.sender]=(registInfo);
-            
-            emit RegistEvent(eventId,events[eventId].name,msg.sender);
+            });
+        }
+        users[msg.sender].events.push(eventId);
+        events[eventId].registor.push(msg.sender);
+        events[eventId].registInfo[msg.sender] = (registInfo);
+        
+        emit RegistEvent(eventId,events[eventId].name,msg.sender);
+    }
+
+    function register(string registInfo) public {
+        if (users[msg.sender].id == 0){
+            userCount = userCount + 1;
+        }
+        registry[msg.sender] = registInfo;
+        emit RegistSuccess(msg.sender, registInfo);
     }
 
 }

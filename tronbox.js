@@ -4,17 +4,18 @@ module.exports = {
   networks: {
     development: {
 // For trontools/quickstart docker image
-      privateKey: 'da146374a75310b9666e834ee4ad0866d6f4035967bfc76217c5a495fff9f0d0',
+      privateKey: 'ef4c68642691a688a8be8ffc7971cface16a1179daaa5923984d494553fc0110',
       consume_user_resource_percent: 30,
-      fee_limit: 100000000,
-
+      fee_limit: 1e8,
+      origin_energy_limit: 1e7,
+      
       // Requires TronBox 2.1.9+ and Tron Quickstart 1.1.16+
-      // fullHost: "http://127.0.0.1:9090",
+      fullHost: "http://127.0.0.1:8090",
 
       // The three settings below for TronBox < 2.1.9
-      fullNode: "http://127.0.0.1:9090",
-      solidityNode: "http://127.0.0.1:9090",
-      eventServer: "http://127.0.0.1:9090",
+      // fullNode: "http://127.0.0.1:9090",
+      // solidityNode: "http://127.0.0.1:9090",
+      // eventServer: "http://127.0.0.1:9090",
 
       network_id: "*"
     },
@@ -47,7 +48,8 @@ module.exports = {
     shasta: {
       privateKey: process.env.PK,
       consume_user_resource_percent: 30,
-      fee_limit: 100000000,
+      fee_limit: 1e8,
+      origin_energy_limit: 1e7,
 
       // tronbox 2.1.9+
       fullHost: "https://api.shasta.trongrid.io",

@@ -22,12 +22,15 @@ const utils = {
             message: message.message
         }
     },
-
     async fetchStoredData() {
         const storedData = await this.contract.storedData_().call();
         return storedData;
     },
-
+    async submitRegister() {
+      const _message = "Test User Info";
+      await this.contract.register(_message).call();
+      return true;
+    },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();
         const vulnerable = Object.keys(recent).filter(messageID => (

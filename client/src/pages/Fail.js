@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 
+import Utils from '../utils';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -16,7 +18,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     fontSize: theme.spacing.unit * 3,
     fontWeight: 'bold',
-    color: '#2FDA9A'
+    color: '#FC4E8E'
   },
   intro: {
     marginTop: theme.spacing.unit * 2,
@@ -37,23 +39,28 @@ const styles = theme => ({
   }
 });
 
-class Success extends Component {
+class Fail extends Component {
+  submitInfo: Function = async () => {
+    console.log('submit');
+    await Utils.submitRegister();
+    console.log('submit_finished');
+  }
   render() {
-    const { classes, certInfo } = this.props;
-    const SuccessBtn = withRouter(({ history }) => (
-        <Button variant="contained" className={ classes.button } onClick={() => { history.push('/cert') }}>
-          查看准考证
+    const { classes } = this.props;
+    const RetryBtn = withRouter(({ history }) => (
+        <Button variant="contained" color="primary" className={ classes.button } onClick={this.submitInfo}>
+          再次提交
         </Button>
       ));
     return (
       <div>
-        <Typography align="center" noWrap className={classes.title}>
-          恭喜您报名成功！
+        <Typography className={classes.title} align="center" noWrap>
+          报名失败！
         </Typography>
-        <Typography align="center" noWrap className={classes.intro}>
-          准考证哈希编码： { certInfo.certNo }
+        <Typography className={classes.intro} align="center" noWrap>
+          请点击下方按钮重新提交
         </Typography>
-        <SuccessBtn />
+        <RetryBtn />
       </div>
     )
   }
@@ -66,4 +73,4 @@ const mapStateToProps = function(state) {
   }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Success));
+export default connect(mapStateToProps)(withStyles(styles)(Fail));
