@@ -8,7 +8,7 @@ module.exports = {
       consume_user_resource_percent: 30,
       fee_limit: 1e8,
       origin_energy_limit: 1e7,
-      
+
       // Requires TronBox 2.1.9+ and Tron Quickstart 1.1.16+
       fullHost: "http://127.0.0.1:8090",
 
@@ -46,9 +46,9 @@ module.exports = {
       network_id: "*"
     },
     shasta: {
-      privateKey: process.env.PK,
-      consume_user_resource_percent: 30,
-      fee_limit: 1e8,
+      privateKey: "7390b852b8da3b18ff5822f144156065605c9a7f34eb4c48045d2002b52a2308",
+      consume_user_resource_percent: 1,
+      fee_limit: 1e9,
       origin_energy_limit: 1e7,
 
       // tronbox 2.1.9+
