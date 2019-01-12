@@ -13,8 +13,9 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
-import Home from './Home';
-import Edit from './Edit';
+import Home from './pages/Home';
+import List from './pages/List';
+import School from './pages/School';
 
 import TronWeb from 'tronweb';
 import Utils from './utils';
@@ -36,15 +37,15 @@ const styles = theme => ({
   },
 })
 
-const EditBtn = withRouter(({ history }) => (
-  <Button color="inherit" onClick={() => { history.push('/edit') }}>
-    Edit
+const ListBtn = withRouter(({ history }) => (
+  <Button color="inherit" onClick={() => { history.push('/list') }}>
+    浏览名单
   </Button>
 ))
 
 const HomeBtn = withRouter(({ history }) => (
   <Button color="inherit" onClick={() => { history.push('/') }}>
-    Home
+    首页
   </Button>
 ))
 
@@ -149,10 +150,10 @@ class App extends Component {
           <AppBar position="static" color="default" className={classes.appBar}>
             <Toolbar>
               <Typography variant="h6" color="inherit" align="left" noWrap className={classes.toolbarTitle}>
-                Tron Dapp
+                艺考报名宝
               </Typography>
               <HomeBtn />
-              <EditBtn />
+              <ListBtn />
             </Toolbar>
           </AppBar>
           <main>
@@ -160,9 +161,8 @@ class App extends Component {
               // render={(props) => <Home {...props} storedData={this.state.storedData} />}
               component={Home}
             />
-            {/* <Route path="/school" component={School} />
-            <Route path="/list" component={List} /> */}
-            <Route path="/edit" component={Edit} />
+            <Route path="/school" component={School} />
+            <Route path="/list" component={List} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
         </div>
