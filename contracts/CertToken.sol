@@ -17,9 +17,8 @@ contract CertToken {
     mapping(address => uint256) public addressCert;
     mapping(uint256 => Cert) public certs;
 
-    constructor(address _controller) public {
+    constructor() public {
         owner = msg.sender;
-        controller = _controller;
     }
 
     function SetController(address _address) public {
@@ -29,7 +28,7 @@ contract CertToken {
     }
 
     function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash) public {
-        require(msg.sender == controller);
+        require(msg.sender == owner);
         require(_to != address(0));
         tokenOwner[_tokenId] = _to;
         Cert memory _cert = Cert({registerInfo:_registerInfo, tokenId:_tokenId, issuer:_issuer, owner:_to, registerInfoHash:_hash});
@@ -39,7 +38,7 @@ contract CertToken {
     }
 
     function burn(address _owner, uint256 _tokenId) public {
-        require(msg.sender == controller);
+        require(msg.sender == owner);
         require(tokenOwner[_tokenId] == _owner);
         tokenOwner[_tokenId] = address(0);
         Cert storage _cert = certs[_tokenId];
