@@ -23,11 +23,11 @@ const utils = {
         }
     },
     async fetchStoredData() {
-        return "1";
+        return "test";
     },
     async submitRegister() {
       const _message = "Test User Info";
-      await this.contract.register(_message).call();
+      await this.contract.register(_message).send();
       return true;
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
