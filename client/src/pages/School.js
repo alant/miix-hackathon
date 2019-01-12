@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import avatar1 from '../images/1.jpg';
 import avatar2 from '../images/2.jpg';
 import avatar3 from '../images/3.jpg';
+import avatar4 from '../images/4.jpg';
+import avatar5 from '../images/5.jpg';
 
 const styles = theme => ({
   root: {
@@ -54,13 +56,13 @@ class School extends Component {
             <Avatar alt="Remy Sharp" src={avatar1} />
           </ListItemAvatar>
           <ListItemText
-            primary="清华美院"
+            primary="中央美术学院"
             secondary={
               <React.Fragment>
                 <Typography component="span" className={classes.inline} color="textPrimary">
                   北京市
                 </Typography>
-                {" - 海淀区"}
+                {" - 朝阳区"}
               </React.Fragment>
             }
           />
@@ -70,13 +72,13 @@ class School extends Component {
             <Avatar alt="Remy Sharp" src={avatar2} />
           </ListItemAvatar>
           <ListItemText
-            primary="中央美院"
+            primary="中国美术学院"
             secondary={
               <React.Fragment>
                 <Typography component="span" className={classes.inline} color="textPrimary">
-                  北京市
+                  浙江省
                 </Typography>
-                {" - 望京区"}
+                {" - 杭州市"}
               </React.Fragment>
             }
           />
@@ -86,13 +88,45 @@ class School extends Component {
             <Avatar alt="Remy Sharp" src={avatar3} />
           </ListItemAvatar>
           <ListItemText
-            primary="海淀美院"
+            primary="西安美术学院"
             secondary={
               <React.Fragment>
                 <Typography component="span" className={classes.inline} color="textPrimary">
-                  北京市
+                  陕西省
                 </Typography>
-                {" - 海淀区"}
+                {" - 西安市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar4} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="四川美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  重庆市
+                </Typography>
+                {" - 沙坪坝区"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar5} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="鲁迅美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  辽宁省
+                </Typography>
+                {" - 沈阳市"}
               </React.Fragment>
             }
           />
