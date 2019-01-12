@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Home from './Home';
 import Edit from './Edit';
+import Info from './pages/Info';
 
 import TronWeb from 'tronweb';
 import Utils from './utils';
@@ -39,6 +40,12 @@ const styles = theme => ({
 const EditBtn = withRouter(({ history }) => (
   <Button color="inherit" onClick={() => { history.push('/edit') }}>
     Edit
+  </Button>
+))
+
+const InfoBtn = withRouter(({ history }) => (
+  <Button color="inherit" onClick={() => { history.push('/info') }}>
+    Info
   </Button>
 ))
 
@@ -152,6 +159,7 @@ class App extends Component {
                 Tron Dapp
               </Typography>
               <HomeBtn />
+              <InfoBtn />
               <EditBtn />
             </Toolbar>
           </AppBar>
@@ -163,6 +171,7 @@ class App extends Component {
             {/* <Route path="/school" component={School} />
             <Route path="/list" component={List} /> */}
             <Route path="/edit" component={Edit} />
+            <Route path="/info" component={Info} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
         </div>
