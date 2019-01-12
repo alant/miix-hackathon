@@ -27,8 +27,21 @@ const styles = theme => ({
 
 
 class School extends Component {
+
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+        replace: PropTypes.func.isRequired
+      }).isRequired,
+      staticContext: PropTypes.object
+    }).isRequired
+  };
+
   handleClick = (schoolId) => {
     console.log("===> clicked on school: ", schoolId);
+    this.props.selectSchool(schoolId);
+    this.context.router.history.push('/info')
   }
 
   render() {
@@ -89,14 +102,20 @@ class School extends Component {
   }
 }
 
+School.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = function(state) {
   return {
     storedData: state.dappReducer.storedValue
   }
 }
 
-School.propTypes = {
-  classes: PropTypes.object.isRequired,
+const mapDispatchToProps = dispatch => {
+  return {
+    selectSchool: (schoolId) => dispatch({ type: "SCHOOL_SELECTED", school: schoolId })
+  };
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(School));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(School));

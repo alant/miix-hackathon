@@ -12,9 +12,12 @@ import { withRouter } from 'react-router-dom';
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 4,
+    paddingBottom: theme.spacing.unit * 4,
   },
+  ua: {
+    padding: theme.spacing.unit * 4,
+  }
 });
 
 const SchoolBtn = withRouter(({ history }) => (
@@ -34,7 +37,7 @@ class Home extends Component {
             欢迎使用艺考在线报名系统（基于区块链技术方案）
           </Typography>
         </Paper>
-        <Typography component="p">
+        <Typography component="p" className={classes.ua}>
           使用协议
         </Typography>
         <SchoolBtn />

@@ -3,10 +3,12 @@ import { combineReducers } from 'redux';
 // action types
 const GETTING_STORED_VALUE = "GETTING_STORED_VALUE";
 const GOT_STORED_VALUE = "GOT_STORED_VALUE";
+const SCHOOL_SELECTED = "SCHOOL_SELECTED";
 
 // reducer with initial state
 const initialState = {
-  storedValue: -1
+  storedValue: -1,
+  schoolSelected: 0
 };
 
 function dappReducer(state = initialState, action) {
@@ -15,6 +17,8 @@ function dappReducer(state = initialState, action) {
       return { ...state, gotStoredValue: false };
     case GOT_STORED_VALUE:
       return { ...state, gotStoredValue: true, storedValue: action.storedValue };
+    case SCHOOL_SELECTED:
+      return { ...state, schoolSelected: action.school};
     default:
       return state;
   }

@@ -35,7 +35,7 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-class List extends Component {
+class StudentList extends Component {
   render() {
     const { classes } = this.props;
     return (
@@ -65,7 +65,7 @@ class List extends Component {
   }
 }
 
-List.propTypes = {
+StudentList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -81,4 +81,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(List));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(StudentList));
