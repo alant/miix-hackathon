@@ -23,6 +23,7 @@ contract CertToken {
 
     function SetController(address _address) public {
         require(_address != address(0));
+        require(msg.sender == owner);
         controller = _address;
     }
 
