@@ -1,31 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icon/DeleteIcon';
-import Typography from '@material-ui/icon/Typography';
+// import DeleteIcon from '@material-ui/icons/Delete';
+import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 
 class Success extends Component {
   render() {
-    const { classes } = this.props;
-    return (
-      <div>
-        <Typography variant="h6" color="inherit" align="left" noWrap className={classes.toolbarTitle}>
-          报名成功！
-        </Typography>
-        <Button variant="contained" color="secondary" className={classes.button}>
+    const { classes, certInfo } = this.props;
+    const SuccessBtn = withRouter(({ history }) => (
+        <Button color="inherit" onClick={() => { history.push('/cert') }}>
           查看准考证
-          <DeleteIcon className={classes.rightIcon} />
         </Button>
+      ));
+    return (
+      certInfo.state === 1
+      ? <div>
+        <Typography variant="h6" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
+          恭喜报名成功！
+        </Typography>
+        <Typography variant="h6" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
+          准考证编号： { certInfo.certNo }
+        </Typography>
+        <SuccessBtn />
+      </div>
+      : <div>
+        <Typography variant="h6" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
+          报名信息确认中...
+        </Typography>
+        <Typography variant="h6" color="inherit" align="center" noWrap className={classes.toolbarTitle}>
+          请等待...
+        </Typography>
+        <CircularProgress />
       </div>
     )
   }
 }
 
 const mapStateToProps = function(state) {
+  console.log(state);
   return {
-    certInfo: state.certInfo
+    certInfo: state.dappReducer.certInfo
   }
 }
 
-export default connect(mapStateToProps)(withStyles(Success));
+export default connect(mapStateToProps)(withStyles()(Success));

@@ -15,7 +15,8 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Home from './Home';
 import Edit from './Edit';
-
+import Success from './pages/Success';
+import Cert from './pages/Cert';
 import TronWeb from 'tronweb';
 import Utils from './utils';
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
@@ -163,6 +164,8 @@ class App extends Component {
             {/* <Route path="/school" component={School} />
             <Route path="/list" component={List} /> */}
             <Route path="/edit" component={Edit} />
+            <Route path="/success" component={Success} />
+            <Route path="/cert" component={Cert} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
         </div>

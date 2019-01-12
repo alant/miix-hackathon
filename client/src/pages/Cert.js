@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Typography from '@material-ui/icon/Typography';
-import Card from '@material-ui/icon/Card';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 
 class Success extends Component {
@@ -23,7 +23,7 @@ class Success extends Component {
     return (
       <div>
         <Typography variant="h6" color="inherit" align="left" noWrap className={classes.toolbarTitle}>
-          准考证信息：
+          准考证信息： 
         </Typography>
         <Card>
           <span>准考证号：</span><span>{certInfo.certNo}</span>
@@ -35,8 +35,8 @@ class Success extends Component {
 
 const mapStateToProps = function(state) {
   return {
-    certInfo: state.certInfo
+    certInfo: state.dappReducer.certInfo
   }
 }
 
-export default connect(mapStateToProps)(withStyles(Success));
+export default connect(mapStateToProps)(withStyles()(Success));
