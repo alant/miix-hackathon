@@ -1,4 +1,5 @@
 var Registration = artifacts.require("./Registration.sol");
+var CertToken = artifacts.require("./CertToken.sol");
 
 contract('Registration', function(accounts) {
   it("...should start with the value 0.", async function() {
