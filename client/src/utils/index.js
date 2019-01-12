@@ -1,4 +1,4 @@
-import SimpleStorage from '../contracts/SimpleStorage.json';
+import SimpleStorage from '../contracts/RegistrationSlim.json';
 
 const contractAddress = '414ad2dc10595ffccd49ebf1e3591c886a78967b7a';
 
@@ -23,8 +23,7 @@ const utils = {
         }
     },
     async fetchStoredData() {
-        const storedData = await this.contract.storedData_().call();
-        return storedData;
+        return "1";
     },
     async submitRegister() {
       const _message = "Test User Info";
