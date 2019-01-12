@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
-
+import bg from '../images/pic_result_success.png';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -47,6 +47,7 @@ class Success extends Component {
       ));
     return (
       <div>
+         <img src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography align="center" noWrap className={classes.title}>
           恭喜您报名成功！
         </Typography>
