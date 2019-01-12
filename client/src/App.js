@@ -160,8 +160,8 @@ class App extends Component {
               // render={(props) => <Home {...props} storedData={this.state.storedData} />}
               component={Home}
             />
-            <Route path="/school" component={School} />
-            <Route path="/list" component={List} />
+            {/* <Route path="/school" component={School} />
+            <Route path="/list" component={List} /> */}
             <Route path="/edit" component={Edit} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
