@@ -17,7 +17,7 @@ import avatar3 from '../images/3.jpg';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    minWidth: 320,
     backgroundColor: theme.palette.background.paper,
   },
   inline: {
