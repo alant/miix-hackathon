@@ -25,12 +25,12 @@ function CertCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/1.jpg"
-          title="清华大学美术学院2019年准考证"
+          image={require('../images/1.jpg')}
+          title="准考证"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            { certInfo.personalInfo.Name }
+            { certInfo.personalInfo.name }
           </Typography>
           <Typography component="p">
             { certInfo.certNo }

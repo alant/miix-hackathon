@@ -7,11 +7,22 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 
+const styles = theme => ({
+  root: {
+    width: '100%',
+    padding: theme.spacing.unit * 2,
+    overflowX: 'auto',
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
+});
+
 class Success extends Component {
   render() {
     const { classes, certInfo } = this.props;
     const SuccessBtn = withRouter(({ history }) => (
-        <Button color="inherit" onClick={() => { history.push('/cert') }}>
+        <Button variant="contained" color="primary" className={ classes.button } onClick={() => { history.push('/cert') }}>
           查看准考证
         </Button>
       ));
@@ -46,4 +57,4 @@ const mapStateToProps = function(state) {
   }
 }
 
-export default connect(mapStateToProps)(withStyles()(Success));
+export default connect(mapStateToProps)(withStyles(styles)(Success));
