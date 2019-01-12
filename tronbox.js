@@ -47,7 +47,8 @@ module.exports = {
     shasta: {
       privateKey: process.env.PK,
       consume_user_resource_percent: 30,
-      fee_limit: 100000000,
+      fee_limit: 1e8,
+      origin_energy_limit: 1e7,
 
       // tronbox 2.1.9+
       fullHost: "https://api.shasta.trongrid.io",

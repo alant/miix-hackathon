@@ -17,7 +17,7 @@ contract CertToken {
     mapping(address => mapping(uint256 => address)) public addressCerts;
     mapping(uint256 => Cert) public certs;
 
-    function CertToken(address _owner) public {
+    constructor(address _owner) public {
         require(_owner != address(0));
         owner = _owner;
     }
@@ -37,14 +37,14 @@ contract CertToken {
         emit Mint(_to, _tokenId, _registerInfo, _issuer, _hash);
     }
 
-    function burn(address owner, uint256 _tokenId) public {
+    function burn(address _owner, uint256 _tokenId) public {
         require(msg.sender == controller);
-        require(tokenOwner[_tokenId] == owner);
+        require(tokenOwner[_tokenId] == _owner);
         tokenOwner[_tokenId] = address(0);
         Cert storage _cert = certs[_tokenId];
         _cert.owner = address(0);
         delete addressCerts[owner][_tokenId];
-        emit Burn(owner, _tokenId);
+        emit Burn(_owner, _tokenId);
     }
 }
 
