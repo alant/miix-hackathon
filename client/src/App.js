@@ -13,9 +13,12 @@ import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
 import { HashRouter as Router, Route, withRouter } from 'react-router-dom';
+
+import Info from './pages/Info';
 import Home from './pages/Home';
 import List from './pages/List';
 import School from './pages/School';
+
 
 import TronWeb from 'tronweb';
 import Utils from './utils';
@@ -40,6 +43,12 @@ const styles = theme => ({
 const ListBtn = withRouter(({ history }) => (
   <Button color="inherit" onClick={() => { history.push('/list') }}>
     浏览名单
+  </Button>
+))
+
+const InfoBtn = withRouter(({ history }) => (
+  <Button color="inherit" onClick={() => { history.push('/info') }}>
+    Info
   </Button>
 ))
 
@@ -153,6 +162,7 @@ class App extends Component {
                 艺考报名宝
               </Typography>
               <HomeBtn />
+              <InfoBtn />
               <ListBtn />
             </Toolbar>
           </AppBar>
@@ -161,6 +171,9 @@ class App extends Component {
               // render={(props) => <Home {...props} storedData={this.state.storedData} />}
               component={Home}
             />
+            {/* <Route path="/school" component={School} />
+            <Route path="/list" component={List} /> */}
+            <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
             <Route path="/list" component={List} />
           </main>
