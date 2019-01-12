@@ -17,7 +17,9 @@ import Success from './pages/Success';
 import Cert from './pages/Cert';
 import Home from './pages/Home';
 import List from './pages/List';
+import Info from './pages/Info';
 import School from './pages/School';
+
 import TronWeb from 'tronweb';
 import Utils from './utils';
 const FOUNDATION_ADDRESS = 'TWiWt5SEDzaEqS6kE5gandWMNfxR2B5xzg';
@@ -41,6 +43,12 @@ const styles = theme => ({
 const ListBtn = withRouter(({ history }) => (
   <Button color="inherit" onClick={() => { history.push('/list') }}>
     浏览名单
+  </Button>
+))
+
+const InfoBtn = withRouter(({ history }) => (
+  <Button color="inherit" onClick={() => { history.push('/info') }}>
+    Info
   </Button>
 ))
 
@@ -154,6 +162,7 @@ class App extends Component {
                 艺考报名宝
               </Typography>
               <HomeBtn />
+              <InfoBtn />
               <ListBtn />
             </Toolbar>
           </AppBar>
@@ -164,6 +173,7 @@ class App extends Component {
             />
             <Route path="/success" component={Success} />
             <Route path="/cert" component={Cert} />
+            <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
             <Route path="/list" component={List} />
           </main>
