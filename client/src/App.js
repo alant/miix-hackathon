@@ -12,7 +12,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import { HashRouter as Router, Route, withRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import List from './pages/List';
 import School from './pages/School';
