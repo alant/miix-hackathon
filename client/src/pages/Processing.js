@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-
+import bg from '../images/pic_result_waiting.png';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -28,6 +28,7 @@ class Processing extends Component {
     const { classes } = this.props;
     return (
       <div>
+         <img src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography align="center" noWrap className={classes.title}>
           报名信息确认中...
         </Typography>

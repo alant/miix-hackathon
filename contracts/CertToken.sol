@@ -14,7 +14,7 @@ contract CertToken {
     address controller;
 
     mapping(uint256 => address) public tokenOwner;
-    mapping(address => mapping(uint256 => address)) public addressCerts;
+    mapping(address => uint256) public addressCert;
     mapping(uint256 => Cert) public certs;
 
     constructor() public {
@@ -33,7 +33,7 @@ contract CertToken {
         tokenOwner[_tokenId] = _to;
         Cert memory _cert = Cert({registerInfo:_registerInfo, tokenId:_tokenId, issuer:_issuer, owner:_to, registerInfoHash:_hash});
         certs[_tokenId] = _cert;
-        addressCerts[_to][_tokenId] = _to;
+        addressCert[_to] = _tokenId;
         emit Mint(_to, _tokenId, _registerInfo, _issuer, _hash);
     }
 
@@ -43,7 +43,7 @@ contract CertToken {
         tokenOwner[_tokenId] = address(0);
         Cert storage _cert = certs[_tokenId];
         _cert.owner = address(0);
-        delete addressCerts[_owner][_tokenId];
+        delete addressCert[_owner];
         emit Burn(owner, _tokenId);
     }
 }
