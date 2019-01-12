@@ -1,6 +1,5 @@
 pragma solidity ^0.4.23;
 contract CertToken {
-
     struct Cert {
         string registerInfo;
         uint256 tokenId;
@@ -18,12 +17,12 @@ contract CertToken {
     mapping(address => mapping(uint256 => address)) public addressCerts;
     mapping(uint256 => Cert) public certs;
 
-    function CertToken(address _owner){
+    function CertToken(address _owner) public {
         require(_owner != address(0));
         owner = _owner;
     }
 
-    function SetController(address _address){
+    function SetController(address _address) public {
         require(_address != address(0));
         controller = _address;
     }
@@ -35,7 +34,7 @@ contract CertToken {
         Cert memory _cert = Cert({registerInfo:_registerInfo, tokenId:_tokenId, issuer:_issuer, owner:_to, registerInfoHash:_hash});
         certs[_tokenId] = _cert;
         addressCerts[_to][_tokenId] = _to;
-        Mint(_to, _tokenId, _registerInfo, _issuer, _hash);
+        emit Mint(_to, _tokenId, _registerInfo, _issuer, _hash);
     }
 
     function burn(address owner, uint256 _tokenId) public {
@@ -45,7 +44,7 @@ contract CertToken {
         Cert storage _cert = certs[_tokenId];
         _cert.owner = address(0);
         delete addressCerts[owner][_tokenId];
-        Burn(owner, _tokenId);
+        emit Burn(owner, _tokenId);
     }
 }
 
