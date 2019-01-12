@@ -12,13 +12,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { connect } from 'react-redux';
 
-import { HashRouter as Router, Route, withRouter } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import Success from './pages/Success';
+import Cert from './pages/Cert';
 import Info from './pages/Info';
 import Home from './pages/Home';
 import StudentList from './pages/StudentList';
 import School from './pages/School';
-
 
 import TronWeb from 'tronweb';
 import Utils from './utils';
@@ -164,8 +164,8 @@ class App extends Component {
               // render={(props) => <Home {...props} storedData={this.state.storedData} />}
               component={Home}
             />
-            {/* <Route path="/school" component={School} />
-            <Route path="/list" component={List} /> */}
+            <Route path="/success" component={Success} />
+            <Route path="/cert" component={Cert} />
             <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
             <Route path="/studentlist" component={StudentList} />
