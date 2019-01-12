@@ -1,4 +1,4 @@
-import SimpleStorage from '../contracts/SimpleStorage.json';
+import Registration from '../contracts/RegistrationSlim.json';
 
 const contractAddress = '41d6523673d21b75b461ef6bb29cbdffb57b90db2a';
 
@@ -8,7 +8,7 @@ const utils = {
 
     setTronWeb(tronWeb) {
         this.tronWeb = tronWeb;
-        this.contract = tronWeb.contract(SimpleStorage.abi, contractAddress);
+        this.contract = tronWeb.contract(Registration.abi, contractAddress);
     },
 
     transformMessage(message) {
@@ -22,10 +22,10 @@ const utils = {
             message: message.message
         }
     },
-    async fetchStoredData() {
-        const storedData = await this.contract.storedData_().call();
-        return storedData;
-    },
+    // async fetchStoredData() {
+    //     const storedData = await this.contract.storedData_().call();
+    //     return storedData;
+    // },
     async submitRegister() {
       const _message = "Test User Info";
       await this.contract.register(_message).call();
