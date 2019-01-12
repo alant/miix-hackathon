@@ -163,9 +163,7 @@ class App extends Component {
               </Typography>
               <HomeBtn />
               <InfoBtn />
-              <EditBtn />
               <ListBtn />
-
             </Toolbar>
           </AppBar>
           <main>
@@ -175,7 +173,6 @@ class App extends Component {
             />
             {/* <Route path="/school" component={School} />
             <Route path="/list" component={List} /> */}
-            <Route path="/edit" component={Edit} />
             <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
             <Route path="/list" component={List} />
