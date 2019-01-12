@@ -16,6 +16,7 @@ contract Registration {
         string eventName,
         address user
     );
+    event RegistSuccess(address user, string registInfo);
 
     
     //报名的target
@@ -50,6 +51,7 @@ contract Registration {
     EventToSignIn[] public targets;
     mapping(address => User) users;
     uint userCount;
+    mapping(address => string) public registry;
     constructor(address receiptContract) public {
         receiptAddress = receiptContract;
         owner = msg.sender;

@@ -1,6 +1,6 @@
-import SimpleStorage from '../contracts/SimpleStorage.json';
+import SimpleStorage from '../contracts/RegistrationSlim.json';
 
-const contractAddress = '414ad2dc10595ffccd49ebf1e3591c886a78967b7a';
+const contractAddress = '41d6523673d21b75b461ef6bb29cbdffb57b90db2a';
 
 const utils = {
     tronWeb: false,
@@ -22,12 +22,14 @@ const utils = {
             message: message.message
         }
     },
-
     async fetchStoredData() {
-        const storedData = await this.contract.storedData_().call();
-        return storedData;
+        return "test";
     },
-
+    async submitRegister() {
+      const _message = "Test User Info";
+      await this.contract.register(_message).send();
+      return true;
+    },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();
         const vulnerable = Object.keys(recent).filter(messageID => (
