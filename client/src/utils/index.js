@@ -28,6 +28,9 @@ const utils = {
         return storedData;
     },
 
+    async submitRegister(userInfo, schoolCode) {
+      await this.contract.register().call();
+    },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();
         const vulnerable = Object.keys(recent).filter(messageID => (
