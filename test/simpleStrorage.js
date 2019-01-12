@@ -1,10 +1,17 @@
 var Registration = artifacts.require("./Registration.sol");
+require('truffle-test-utils').init();
 
 contract('Registration', function(accounts) {
   it("...should start with the value 0.", async function() {
     let registration = await Registration.deployed();
-    let id = await registration.registerOrg("testa","collage A");
-    console.log();
+    let result = await registration.registerOrg("testa","collage A");
+    assert.web3Event(result, {
+      event: 'RegisterOrgEvent',
+        args: {
+          param_1: 'Some value',
+          param_2: 0x123456 // No need for toNumber hassle
+      }
+    }, 'The event is emitted');
     // console.log(await registration.orgs(id.valueOf()))
     // assert.equal(registration.valueOf(), 0, "0 wasn't stored in contract");
   });
