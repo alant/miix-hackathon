@@ -15,9 +15,9 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Success from './pages/Success';
 import Cert from './pages/Cert';
-import Home from './pages/Home';
-import List from './pages/List';
 import Info from './pages/Info';
+import Home from './pages/Home';
+import StudentList from './pages/StudentList';
 import School from './pages/School';
 
 import TronWeb from 'tronweb';
@@ -41,14 +41,8 @@ const styles = theme => ({
 })
 
 const ListBtn = withRouter(({ history }) => (
-  <Button color="inherit" onClick={() => { history.push('/list') }}>
+  <Button color="inherit" onClick={() => { history.push('/studentlist') }}>
     浏览名单
-  </Button>
-))
-
-const InfoBtn = withRouter(({ history }) => (
-  <Button color="inherit" onClick={() => { history.push('/info') }}>
-    Info
   </Button>
 ))
 
@@ -162,7 +156,6 @@ class App extends Component {
                 艺考报名宝
               </Typography>
               <HomeBtn />
-              <InfoBtn />
               <ListBtn />
             </Toolbar>
           </AppBar>
@@ -175,7 +168,7 @@ class App extends Component {
             <Route path="/cert" component={Cert} />
             <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
-            <Route path="/list" component={List} />
+            <Route path="/studentlist" component={StudentList} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
         </div>
