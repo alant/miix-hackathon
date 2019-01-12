@@ -1,6 +1,6 @@
 import SimpleStorage from '../contracts/SimpleStorage.json';
 
-const contractAddress = '414ad2dc10595ffccd49ebf1e3591c886a78967b7a';
+const contractAddress = '41d6523673d21b75b461ef6bb29cbdffb57b90db2a';
 
 const utils = {
     tronWeb: false,
