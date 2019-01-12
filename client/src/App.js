@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 
 import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Success from './pages/Success';
+import Fail from './pages/Fail';
+import Processing from './pages/Processing';
 import Cert from './pages/Cert';
 import Info from './pages/Info';
 import Home from './pages/Home';
@@ -169,6 +171,8 @@ class App extends Component {
             <Route path="/info" component={Info} />
             <Route path="/school" component={School} />
             <Route path="/studentlist" component={StudentList} />
+            <Route path="/fail" component={Fail} />
+            <Route path="/processing" component={Processing} />
           </main>
           <p> Built by team Atom with <span role="img" aria-label="Love">❤️</span> </p>
         </div>
