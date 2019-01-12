@@ -17,8 +17,9 @@ contract CertToken {
     mapping(address => uint256) public addressCert;
     mapping(uint256 => Cert) public certs;
 
-    constructor() public {
+    constructor(address _controller) public {
         owner = msg.sender;
+        controller = _controller;
     }
 
     function SetController(address _address) public {
