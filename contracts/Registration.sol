@@ -47,10 +47,11 @@ contract Registration {
     address public owner;
     address receiptAddress;
     Organisation[] public orgs;
-    EventToSignIn[] public events;
+    EventToSignIn[] public targets;
     mapping(address => User) users;
     uint userCount;
-    constructor() public {
+    constructor(address receiptContract) public {
+        receiptAddress = receiptContract;
         owner = msg.sender;
     }
 
@@ -66,7 +67,6 @@ contract Registration {
     }
 
     function registerOrg(string name, string info) public onlyAdmin {
-        require(owner == msg.sender);
         uint id = orgs.length;
         orgs.push(Organisation({
             id: id,
@@ -79,8 +79,8 @@ contract Registration {
 
     function addEvent(string name, string info, string pubKey, uint orgId) public onlyAdmin {
         require(msg.sender == orgs[orgId].admin);
-        uint id = events.length;
-        events.push(EventToSignIn({
+        uint id = targets.length;
+        targets.push(EventToSignIn({
             id: id,
             name: name,
             info: info,
@@ -104,10 +104,16 @@ contract Registration {
             });
         }
         users[msg.sender].events.push(eventId);
-        events[eventId].registor.push(msg.sender);
-        events[eventId].registInfo[msg.sender] = (registInfo);
+        targets[eventId].registor.push(msg.sender);
+        targets[eventId].registInfo[msg.sender] = registInfo;
         
-        emit RegistEvent(eventId,events[eventId].name,msg.sender);
+        emit RegistEvent(eventId,targets[eventId].name,msg.sender);
     }
 
+    // function listEventRegistor(uint eventId,)
+
+}
+
+contract ICommittee{
+    function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash);
 }
