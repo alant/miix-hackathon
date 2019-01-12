@@ -1,13 +1,13 @@
 {
-  "main.css": "/miix-hackathon/static/css/main.fa5d0c05.chunk.css",
-  "main.js": "/miix-hackathon/static/js/main.9934b424.chunk.js",
-  "main.js.map": "/miix-hackathon/static/js/main.9934b424.chunk.js.map",
-  "static/js/1.6533578f.chunk.js": "/miix-hackathon/static/js/1.6533578f.chunk.js",
-  "static/js/1.6533578f.chunk.js.map": "/miix-hackathon/static/js/1.6533578f.chunk.js.map",
+  "main.css": "/miix-hackathon/static/css/main.9b6e01e6.chunk.css",
+  "main.js": "/miix-hackathon/static/js/main.c627703e.chunk.js",
+  "main.js.map": "/miix-hackathon/static/js/main.c627703e.chunk.js.map",
+  "static/js/1.6d9b0db5.chunk.js": "/miix-hackathon/static/js/1.6d9b0db5.chunk.js",
+  "static/js/1.6d9b0db5.chunk.js.map": "/miix-hackathon/static/js/1.6d9b0db5.chunk.js.map",
   "runtime~main.js": "/miix-hackathon/static/js/runtime~main.679e2c39.js",
   "runtime~main.js.map": "/miix-hackathon/static/js/runtime~main.679e2c39.js.map",
-  "static/css/main.fa5d0c05.chunk.css.map": "/miix-hackathon/static/css/main.fa5d0c05.chunk.css.map",
+  "static/css/main.9b6e01e6.chunk.css.map": "/miix-hackathon/static/css/main.9b6e01e6.chunk.css.map",
   "index.html": "/miix-hackathon/index.html",
-  "precache-manifest.11bbcee65d15d50f97a48b513d629923.js": "/miix-hackathon/precache-manifest.11bbcee65d15d50f97a48b513d629923.js",
+  "precache-manifest.1ebfdd5f37ab75adc2d33520198a9e12.js": "/miix-hackathon/precache-manifest.1ebfdd5f37ab75adc2d33520198a9e12.js",
   "service-worker.js": "/miix-hackathon/service-worker.js"
 }
