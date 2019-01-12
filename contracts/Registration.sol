@@ -16,6 +16,7 @@ contract Registration {
         string eventName,
         address user
     );
+    event RegistSuccess(address user, string registInfo);
 
     
     //报名的target
@@ -50,6 +51,8 @@ contract Registration {
     EventToSignIn[] public events;
     mapping(address => User) users;
     uint userCount;
+    mapping(address => string) public registry;
+
     constructor() public {
         owner = msg.sender;
     }
@@ -108,6 +111,14 @@ contract Registration {
         events[eventId].registInfo[msg.sender] = (registInfo);
         
         emit RegistEvent(eventId,events[eventId].name,msg.sender);
+    }
+
+    function register(string registInfo) public {
+        if (users[msg.sender].id == 0){
+            userCount = userCount + 1;
+        }
+        registry[msg.sender] = registInfo;
+        emit RegistSuccess(msg.sender, registInfo);
     }
 
 }
