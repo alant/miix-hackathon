@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/pic_welcome_bg.cd9c7c90.png"
   },
   {
-    "revision": "b94cf24dc9137414622b03ded061d1f5",
+    "revision": "4cd0247aeb66247571922bb8a2419ea9",
     "url": "/miix-hackathon/index.html"
   }
 ];
