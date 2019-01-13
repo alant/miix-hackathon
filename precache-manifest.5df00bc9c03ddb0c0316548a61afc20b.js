@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/5.be0401fd.jpg"
   },
   {
-    "revision": "44fe426b2967560461e9",
+    "revision": "3baa735a7dc2e4f3867e",
     "url": "/miix-hackathon/static/css/main.23110daf.chunk.css"
   },
   {
@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/4.b2966b92.jpg"
   },
   {
-    "revision": "44fe426b2967560461e9",
-    "url": "/miix-hackathon/static/js/main.44fe426b.chunk.js"
+    "revision": "3baa735a7dc2e4f3867e",
+    "url": "/miix-hackathon/static/js/main.3baa735a.chunk.js"
   },
   {
     "revision": "c5905468986d299eff7f6d22b418a920",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/pic_welcome_bg.cd9c7c90.png"
   },
   {
-    "revision": "4cd0247aeb66247571922bb8a2419ea9",
+    "revision": "3679ab7720677e6130b65b078d9a45ca",
     "url": "/miix-hackathon/index.html"
   }
 ];
