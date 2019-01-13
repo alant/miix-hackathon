@@ -15,6 +15,11 @@ import avatar2 from '../images/2.jpg';
 import avatar3 from '../images/3.jpg';
 import avatar4 from '../images/4.jpg';
 import avatar5 from '../images/5.jpg';
+import avatar6 from '../images/6.jpg';
+import avatar7 from '../images/7.jpg';
+import avatar8 from '../images/8.jpg';
+import avatar9 from '../images/9.jpg';
+import avatar10 from '../images/10.jpg';
 
 const styles = theme => ({
   root: {
@@ -40,9 +45,9 @@ class School extends Component {
     }).isRequired
   };
 
-  handleClick = (schoolId) => {
-    console.log("===> clicked on school: ", schoolId);
-    this.props.selectSchool(schoolId);
+  handleClick = (schoolId, schoolName) => {
+    console.log("===> clicked on school <==: ", schoolId, schoolName);
+    this.props.selectSchool(schoolId, schoolName);
     this.context.router.history.push('/info')
   }
 
@@ -51,7 +56,7 @@ class School extends Component {
 
     return (
       <List className={classes.root}>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(1)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(1, "中央美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar1} />
           </ListItemAvatar>
@@ -67,7 +72,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(2)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(2, "中国美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar2} />
           </ListItemAvatar>
@@ -83,7 +88,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3, "西安美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar3} />
           </ListItemAvatar>
@@ -99,7 +104,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(4, "四川美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar4} />
           </ListItemAvatar>
@@ -115,7 +120,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(5, "鲁迅美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar5} />
           </ListItemAvatar>
@@ -127,6 +132,86 @@ class School extends Component {
                   辽宁省
                 </Typography>
                 {" - 沈阳市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(6, "广州美术学院")}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar6} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="广州美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  广东省
+                </Typography>
+                {" - 广州市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(7, "湖北美术学院")}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar7} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="湖北美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  湖北省
+                </Typography>
+                {" - 武汉市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(8, "天津美术学院")}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar8} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="天津美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  天津市
+                </Typography>
+                {" - 天津市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(9, "清华大学美术学院")}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar9} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="清华大学美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  北京市
+                </Typography>
+                {" - 北京市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(10, "南京艺术学院")}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar10} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="南京艺术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  江苏省
+                </Typography>
+                {" - 南京市"}
               </React.Fragment>
             }
           />
@@ -148,7 +233,7 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectSchool: (schoolId) => dispatch({ type: "SCHOOL_SELECTED", school: schoolId })
+    selectSchool: (schoolId, sName) => dispatch({ type: "SCHOOL_SELECTED", school: schoolId, schoolName: sName})
   };
 };
 

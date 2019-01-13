@@ -32,7 +32,16 @@ const styles = theme => ({
     margin: "15px 0px"
   },
   button: {
-    margin: "60px 0px",
+    margin: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 8,
+    fontSize: theme.spacing.unit * 2,
+    height: theme.spacing.unit * 5,
+    width: theme.spacing.unit * 40,
+    color: 'white',
+    backgroundColor: '#5B8CFF',
+    '&:hover': {
+      backgroundColor: '#5B8CFF'
+    }
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -77,7 +86,12 @@ class Info extends Component {
   handelPost = () => {
     this.setState({ open: false });
     console.log(this.state, '------InputValue');
-    this.props.submitInfo(this.state);
+    this.props.submitInfo({
+      userName: this.state.userName,
+      userId: this.state.userId,
+      userType: this.state.userType,
+      major: this.state.major
+    });
     this.context.router.history.push('/processing');
 
     //在此做提交操作，比如发dispatch等
@@ -148,7 +162,7 @@ class Info extends Component {
             <TextField
               disabled
               type="text"
-              defaultValue={this.state.schoolName}
+              value={this.props.schoolName}
               placeholder="身份证号"
               label="报考学校"
               className={classes.input_id}
@@ -222,7 +236,8 @@ Info.propTypes = {
 
 const mapStateToProps = function (state) {
   return {
-    submitInfo: state.dappReducer.submitInfo
+    submitInfo: state.dappReducer.submitInfo,
+    schoolName: state.dappReducer.schoolSelectedName
   }
 }
 

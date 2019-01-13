@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import bg from '../images/pic_result_waiting.png';
+import Utils from '../utils';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -36,6 +37,21 @@ class Processing extends Component {
   };
   componentDidMount() {
     console.log(this.props.submitInfo);
+    this.submitInfo();
+  }
+  submitInfo: Function = async () => {
+    try {
+      const { school } = this.props;
+      const info = this.props.submitInfo;
+      const regInfo = `${info.userName};${info.userId};${info.userType};${info.major}`;
+      await Utils.submitRegister(school, regInfo);
+      this.context.router.history.push('/success');
+      console.log('submit_finished');
+    } catch (e) {
+      this.context.router.history.push('/fail');
+      console.log('error:', e);
+    }
+
   }
   render() {
     const { classes } = this.props;
@@ -55,7 +71,8 @@ class Processing extends Component {
 
 const mapStateToProps = function(state) {
   return {
-    submitInfo: state.dappReducer.submitInfo
+    submitInfo: state.dappReducer.submitInfo,
+    school: state.dappReducer.schoolSelected
   }
 }
 

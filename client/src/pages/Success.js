@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
+import Utils from '../utils';
 import bg from '../images/pic_result_success.png';
 const styles = theme => ({
   root: {
@@ -38,6 +39,15 @@ const styles = theme => ({
 });
 
 class Success extends Component {
+  componentDidMount() {
+    this.fetchToken();
+  }
+  fetchToken: Function = async () => {
+    await Utils.sleep(2000);
+    const certToken = await Utils.getCertToken();
+    console.log(certToken);
+    this.props.gotCertValue(certToken);
+  }
   render() {
     const { classes, certInfo } = this.props;
     const SuccessBtn = withRouter(({ history }) => (
@@ -52,7 +62,7 @@ class Success extends Component {
           恭喜您报名成功！
         </Typography>
         <Typography align="center" noWrap className={classes.intro}>
-          准考证哈希编码： { certInfo.certNo }
+          准考证哈希编码： { certInfo.certHash }
         </Typography>
         <SuccessBtn />
       </div>
@@ -61,10 +71,15 @@ class Success extends Component {
 }
 
 const mapStateToProps = function(state) {
-  console.log(state);
   return {
     certInfo: state.dappReducer.certInfo
   }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Success));
+const mapDispatchToProps = dispatch => {
+  return {
+    gotCertValue: (value) => dispatch({ type: "GOT_CERT_VALUE", certInfo: value })
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Success));

@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
+import bg from '../images/pic_result_fail.png';
 
 import Utils from '../utils';
 
@@ -40,20 +41,16 @@ const styles = theme => ({
 });
 
 class Fail extends Component {
-  submitInfo: Function = async () => {
-    console.log('submit');
-    await Utils.submitRegister();
-    console.log('submit_finished');
-  }
   render() {
     const { classes } = this.props;
     const RetryBtn = withRouter(({ history }) => (
-        <Button variant="contained" color="primary" className={ classes.button } onClick={this.submitInfo}>
+        <Button variant="contained" color="primary" className={ classes.button } onClick={() => { history.push('/info') }}>
           再次提交
         </Button>
       ));
     return (
       <div>
+        <img alt="首页" src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography className={classes.title} align="center" noWrap>
           报名失败！
         </Typography>

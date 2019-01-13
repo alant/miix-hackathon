@@ -20,6 +20,6 @@ module.exports = function(deployer) {
     // }).then(function(i){
     //   console.log(i);
     // });
-    deployer.deploy(Registration,CertToken.address);
+    // deployer.deploy(Registration,CertToken.address);
 };
 

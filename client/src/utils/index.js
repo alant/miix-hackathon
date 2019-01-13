@@ -1,14 +1,16 @@
 import Registration from '../contracts/RegistrationSlim.json';
+import CertToken from '../contracts/CertTokenSlim.json';
 
-const contractAddress = '41f9f8557ba3d56a35ee021821fdaa097a93e2f477';
+const regAddress = '419a93ad5fd20fbf3c4675e813138b0c01293a2ae4';
+const certAddress = '41b015db30300ada33fbfef61919156263cbf84fb0';
 
 const utils = {
     tronWeb: false,
     contract: false,
-
     setTronWeb(tronWeb) {
         this.tronWeb = tronWeb;
-        this.contract = tronWeb.contract(Registration.abi, contractAddress);
+        this.regContract = tronWeb.contract(Registration.abi, regAddress);
+        this.certContract = tronWeb.contract(CertToken.abi, certAddress)
     },
 
     transformMessage(message) {
@@ -25,10 +27,34 @@ const utils = {
     async fetchStoredData() {
         return "test";
     },
-    async submitRegister() {
-      const _message = "Test User Info";
-      await this.contract.register(_message).send();
+    async submitRegister(school, info) {
+      const account = await this.tronWeb.trx.getAccount();
+      await this.regContract.register(school, info).send();
+      await this.certContract.mint(account.address, info, this.tronWeb.sha3(info, false)).send();
       return true;
+    },
+    async getCertToken() {
+      const account = await this.tronWeb.trx.getAccount();
+      const tokenId = await this.certContract.addressCert(account.address).call();
+      console.log(tokenId);
+      const certToken = await this.certContract.certs(tokenId).call();
+      const certHash = await this.certContract.certsHash(tokenId).call();
+      const certArray = certToken.split(';');
+      const certInfo = {
+        name: certArray[0],
+        userId: certArray[1],
+        userType: certArray[2],
+        major: certArray[3],
+        certHash: certHash
+      }
+      return certInfo;
+    },
+    sleep(ms) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, ms)
+      })
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();
