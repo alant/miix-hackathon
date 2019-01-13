@@ -13,7 +13,8 @@ module.exports = function(deployer) {
     // }).then(function(instance) {
     //   regist = instance;
     //   registAddr = regist.address;
-    //   return cert.addIssuer(regist.address);
+    //   console.log(cert);
+    //   return cert.at(cert.address).addIssuer(regist.address);
     // }).then(function(){
     //   return cert.issuers(registAddr)
     // }).then(function(i){
