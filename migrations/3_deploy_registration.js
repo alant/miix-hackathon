@@ -4,7 +4,7 @@ var Registration = artifacts.require("./Registration.sol");
 // var SimpleStorage = artifacts.require("./SimpleStorage.sol");
 
 module.exports = function(deployer) {
-    deployer.deploy(Registration,CertToken.address).then(function(registration){
+    deployer.deploy(Registration,CertToken.address).then(async function(registration){
         let result = await registration.registerOrg("testa","collage A");
         let org = await registration.orgs(0);
         console.log(org.id.toNumber());

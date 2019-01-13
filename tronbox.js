@@ -4,7 +4,7 @@ module.exports = {
   networks: {
     development: {
 // For trontools/quickstart docker image
-      privateKey: 'da146374a75310b9666e834ee4ad0866d6f4035967bfc76217c5a495fff9f0d0',
+      privateKey: process.env.LocalPK,
       consume_user_resource_percent: 30,
       fee_limit: 1e9,
       origin_energy_limit: 1e7,
