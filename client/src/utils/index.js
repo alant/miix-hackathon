@@ -2,7 +2,7 @@ import Registration from '../contracts/RegistrationSlim.json';
 import CertToken from '../contracts/CertTokenSlim.json';
 
 const regAddress = '419a93ad5fd20fbf3c4675e813138b0c01293a2ae4';
-const certAddress = '41c8a052e8cc46c752bb5d20e08b41e1f9efb796cb';
+const certAddress = '41b015db30300ada33fbfef61919156263cbf84fb0';
 
 const utils = {
     tronWeb: false,

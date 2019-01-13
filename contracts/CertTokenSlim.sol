@@ -20,7 +20,7 @@ contract CertTokenSlim {
     }
 
     function mint(address _to, string _registerInfo, string _hash) public {
-        require(issuers[msg.sender] != 0);
+        // require(issuers[msg.sender] != 0);
 
         tokenId_++;
         tokenOwner[tokenId_] = _to;
