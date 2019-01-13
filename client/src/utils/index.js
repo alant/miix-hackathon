@@ -30,14 +30,22 @@ const utils = {
     async submitRegister(school, info) {
       const account = await this.tronWeb.trx.getAccount();
       await this.regContract.register(school, info).send();
-      await this.certContract.mint(account, info, this.tronWeb.sha3(info, false)).send();
+      await this.certContract.mint(account.address, info, this.tronWeb.sha3(info, false)).send();
       return true;
     },
     async getCertToken() {
       const account = await this.tronWeb.trx.getAccount();
-      const tokenId = await this.certContract.addressCert(account).call();
+      const tokenId = await this.certContract.addressCert(account.address).call();
+      console.log(tokenId);
       const certToken = await this.certContract.certs(tokenId).call();
       return certToken;
+    },
+    sleep(ms) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, ms)
+      })
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
         const message = await this.contract.messages(messageID).call();
