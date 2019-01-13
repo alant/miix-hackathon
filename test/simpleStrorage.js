@@ -6,7 +6,8 @@ contract('Registration', function(accounts) {
     let certToken = await CertToken.deployed();
     let registration = await Registration.deployed(certToken.address);
     await certToken.addIssuer(registration.address);
-    console.log("certId: ",await certToken.issuers(registration.address));
+    console.log("registration: ",registration.address);
+    console.log("certToken: ",certToken.address);
     await registration.registerOrg("中央美术学院","中央美术学院");
     await registration.registerOrg("中国美术学院","中国美术学院");
     await registration.registerOrg("西安美术学院","西安美术学院");
@@ -40,6 +41,7 @@ contract('Registration', function(accounts) {
     console.log("certCount:",certId);
     result = await certToken.certs(certId.toNumber());
     console.log(result);
+
     // console.log(evt);
     // console.log("id",orgId)
     // es =  await tronWeb.getEventByTransactionID(result);
