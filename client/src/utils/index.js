@@ -1,4 +1,4 @@
-import SimpleStorage from '../contracts/RegistrationSlim.json';
+import Registration from '../contracts/RegistrationSlim.json';
 
 const contractAddress = '41f9f8557ba3d56a35ee021821fdaa097a93e2f477';
 
@@ -8,7 +8,7 @@ const utils = {
 
     setTronWeb(tronWeb) {
         this.tronWeb = tronWeb;
-        this.contract = tronWeb.contract(SimpleStorage.abi, contractAddress);
+        this.contract = tronWeb.contract(Registration.abi, contractAddress);
     },
 
     transformMessage(message) {

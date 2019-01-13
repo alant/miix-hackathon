@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from '@material-ui/core/Input';
+// import Input from '@material-ui/core/Input';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
@@ -9,14 +9,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormHelperText from '@material-ui/core/FormHelperText';
 import { connect } from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Divider } from '@material-ui/core';
+// import { Divider } from '@material-ui/core';
 
 const styles = theme => ({
   grid: {
@@ -40,6 +40,15 @@ const styles = theme => ({
   }
 });
 class Info extends Component {
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+        replace: PropTypes.func.isRequired
+      }).isRequired,
+      staticContext: PropTypes.object
+    }).isRequired
+  };
   state = {
     userName: '',
     userNameHelper: '',
@@ -57,7 +66,7 @@ class Info extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
- 
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -68,6 +77,9 @@ class Info extends Component {
   handelPost = () => {
     this.setState({ open: false });
     console.log(this.state, '------InputValue');
+    this.props.submitInfo(this.state);
+    this.context.router.history.push('/processing');
+
     //在此做提交操作，比如发dispatch等
     // if(this.state.userName===""){
     //     this.setState({userNameHelper:"姓名不能为空"});
@@ -210,15 +222,14 @@ Info.propTypes = {
 
 const mapStateToProps = function (state) {
   return {
-    storedData: state.dappReducer.storedValue
+    submitInfo: state.dappReducer.submitInfo
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    gotStoredValue: (value) => dispatch({ type: "GOT_STORED_VALUE", storedValue: value })
+    submitInfo: (value) => dispatch({ type: "SUBMIT_INFO", info: value })
   };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Info));
-

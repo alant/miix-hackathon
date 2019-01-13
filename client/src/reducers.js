@@ -7,6 +7,8 @@ const SCHOOL_SELECTED = "SCHOOL_SELECTED";
 
 const GOT_CERT_VALUE = "GOT_CERT_VALUE";
 
+const SUBMIT_INFO = "SUBMIT_INFO";
+
 // reducer with initial state
 const initialState = {
   storedValue: -1,
@@ -23,6 +25,9 @@ const initialState = {
     hash: 'M3DDSODHA3304XDMEO',
     state: 1
   },
+  submitInfo: {
+
+  },
   schoolSelected: 0
 };
 
@@ -34,6 +39,8 @@ function dappReducer(state = initialState, action) {
       return { ...state, gotStoredValue: true, storedValue: action.storedValue };
     case GOT_CERT_VALUE:
       return { ...state, certInfo: action.certInfo }
+    case SUBMIT_INFO:
+      return { ...state, submitInfo: action.info }
     case SCHOOL_SELECTED:
       return { ...state, schoolSelected: action.school};
     default:

@@ -47,7 +47,7 @@ class Success extends Component {
       ));
     return (
       <div>
-         <img src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
+         <img src={bg} alt="报名成功！" style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography align="center" noWrap className={classes.title}>
           恭喜您报名成功！
         </Typography>

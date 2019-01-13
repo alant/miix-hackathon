@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
@@ -34,7 +34,7 @@ class Home extends Component {
 
     return (
       <div>
-        <img src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
+        <img alt="首页" src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <div>
         <label style={{marginTop:"30px",fontSize:"20px"}}>欢迎使用艺考在线报名系统</label>
         </div>
