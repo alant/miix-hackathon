@@ -38,7 +38,16 @@ const utils = {
       const tokenId = await this.certContract.addressCert(account.address).call();
       console.log(tokenId);
       const certToken = await this.certContract.certs(tokenId).call();
-      return certToken;
+      const certHash = await this.certContract.certsHash(tokenId).call();
+      const certArray = certToken.split(';');
+      const certInfo = {
+        name: certArray[0],
+        userId: certArray[1],
+        userType: certArray[2],
+        major: certArray[3],
+        certHash: certHash
+      }
+      return certInfo;
     },
     sleep(ms) {
       return new Promise((resolve) => {

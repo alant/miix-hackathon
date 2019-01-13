@@ -62,7 +62,7 @@ class Success extends Component {
           恭喜您报名成功！
         </Typography>
         <Typography align="center" noWrap className={classes.intro}>
-          准考证哈希编码： { certInfo.certNo }
+          准考证哈希编码： { certInfo.certHash }
         </Typography>
         <SuccessBtn />
       </div>

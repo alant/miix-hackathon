@@ -30,10 +30,10 @@ function CertCard(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            { certInfo.personalInfo.name }
+            { certInfo.name }
           </Typography>
           <Typography component="p">
-            { certInfo.certNo }
+            { certInfo.certHash }
           </Typography>
         </CardContent>
       </CardActionArea>
