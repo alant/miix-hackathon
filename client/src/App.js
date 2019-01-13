@@ -12,7 +12,9 @@ import { withStyles } from '@material-ui/core/styles';
 
 import { connect } from 'react-redux';
 
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+//!!! Do NOT change the following to BrowserRouter because github pages custom url does not support it!!
+import { HashRouter as Router, Route, withRouter } from 'react-router-dom';
+
 import Success from './pages/Success';
 import Fail from './pages/Fail';
 import Processing from './pages/Processing';
