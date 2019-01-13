@@ -13,17 +13,11 @@ const SUBMIT_INFO = "SUBMIT_INFO";
 const initialState = {
   storedValue: -1,
   certInfo: {
-    personalInfo: {
-      name: 'My Name',
-      photo: 'photo',
-      id: '321021198111220901',
-      age: 21
-    },
-    certNo: 'No. 120123',
-    issuer: '1',
-    owner: 'Li Fu Ming',
-    hash: 'M3DDSODHA3304XDMEO',
-    state: 1
+    name: '考生姓名',
+    userId: 'ID',
+    userType: '学历',
+    major: '专业',
+    certHash: '2311231231231313'
   },
   submitInfo: {
 
