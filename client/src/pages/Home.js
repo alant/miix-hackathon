@@ -19,19 +19,29 @@ const styles = theme => ({
   },
   ua: {
     padding: theme.spacing.unit * 4,
+  },
+  button: {
+    margin: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 8,
+    fontSize: theme.spacing.unit * 2,
+    height: theme.spacing.unit * 5,
+    width: theme.spacing.unit * 40,
+    color: 'white',
+    backgroundColor: '#5B8CFF',
+    '&:hover': {
+      backgroundColor: '#5B8CFF'
+    }
   }
 });
-
-const SchoolBtn = withRouter(({ history }) => (
-  <Button fullWidth style={{width:"320px",marginLeft:"10px",marginRight:"10px",marginTop:"70px"}} variant="contained" color="primary" onClick={() => { history.push('/school') }} >
-    开始报名
-  </Button>
-))
 
 class Home extends Component {
   render() {
     const { classes } = this.props;
-
+    const SchoolBtn = withRouter(({ history }) => (
+      <Button fullWidth className={classes.button} variant="contained" color="primary" onClick={() => { history.push('/school') }} >
+        开始报名
+      </Button>
+    ));
     return (
       <div>
         <img alt="首页" src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>

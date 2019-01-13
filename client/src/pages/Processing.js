@@ -41,7 +41,8 @@ class Processing extends Component {
   }
   submitInfo: Function = async () => {
     try {
-      const { info, school } = this.props;
+      const { school } = this.props;
+      const info = this.props.submitInfo;
       const regInfo = `${info.userName};${info.userId};${info.userType};${info.major}`;
       await Utils.submitRegister(school, regInfo);
       this.context.router.history.push('/success');

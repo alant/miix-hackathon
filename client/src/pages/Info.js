@@ -32,7 +32,16 @@ const styles = theme => ({
     margin: "15px 0px"
   },
   button: {
-    margin: "60px 0px",
+    margin: theme.spacing.unit,
+    marginTop: theme.spacing.unit * 8,
+    fontSize: theme.spacing.unit * 2,
+    height: theme.spacing.unit * 5,
+    width: theme.spacing.unit * 40,
+    color: 'white',
+    backgroundColor: '#5B8CFF',
+    '&:hover': {
+      backgroundColor: '#5B8CFF'
+    }
   },
   formControl: {
     margin: theme.spacing.unit,

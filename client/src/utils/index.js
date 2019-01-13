@@ -1,14 +1,16 @@
-import Registration from '../contracts/RegistrationSlim.json';
+import Registration from '../contracts/Registration.json';
+import CertToken from '../contracts/CertToken.json';
 
-const contractAddress = '41f9f8557ba3d56a35ee021821fdaa097a93e2f477';
+const regAddress = '41f9f8557ba3d56a35ee021821fdaa097a93e2f477';
+const certAddress = ''
 
 const utils = {
     tronWeb: false,
     contract: false,
-
     setTronWeb(tronWeb) {
         this.tronWeb = tronWeb;
-        this.contract = tronWeb.contract(Registration.abi, contractAddress);
+        this.regContract = tronWeb.contract(Registration.abi, regAddress);
+        this.certContract = tronWeb.contract(CertToken.abi, certAddress)
     },
 
     transformMessage(message) {
@@ -26,7 +28,7 @@ const utils = {
         return "test";
     },
     async submitRegister(school, info) {
-      await this.contract.register(school, info).send();
+      await this.regContract.register(school, info).send();
       return true;
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {

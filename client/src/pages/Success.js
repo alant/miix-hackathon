@@ -61,7 +61,6 @@ class Success extends Component {
 }
 
 const mapStateToProps = function(state) {
-  console.log(state);
   return {
     certInfo: state.dappReducer.certInfo
   }
