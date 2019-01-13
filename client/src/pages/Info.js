@@ -77,7 +77,12 @@ class Info extends Component {
   handelPost = () => {
     this.setState({ open: false });
     console.log(this.state, '------InputValue');
-    this.props.submitInfo(this.state);
+    this.props.submitInfo({
+      userName: this.state.userName,
+      userId: this.state.userName,
+      userType: this.state.userName,
+      major: this.state.userName
+    });
     this.context.router.history.push('/processing');
 
     //在此做提交操作，比如发dispatch等

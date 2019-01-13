@@ -25,9 +25,8 @@ const utils = {
     async fetchStoredData() {
         return "test";
     },
-    async submitRegister() {
-      const _message = "Test User Info";
-      await this.contract.register(_message).send();
+    async submitRegister(school, info) {
+      await this.contract.register(school, info).send();
       return true;
     },
     async fetchMessage(messageID, { recent = {}, featured = [] }) {
