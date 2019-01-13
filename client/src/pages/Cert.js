@@ -22,7 +22,6 @@ class Cert extends Component {
     await Utils.sleep(1000);
     const certInfo = await Utils.getCertToken();
     console.log(certInfo);
-    certInfo.school = this.props.school;
     this.props.gotCertValue(certInfo);
   }
   render() {
@@ -48,8 +47,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = function(state) {
   return {
-    certInfo: state.dappReducer.certInfo,
-    school: state.dappReducer.schoolSelected
+    certInfo: state.dappReducer.certInfo
   }
 }
 

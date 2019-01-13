@@ -30,13 +30,13 @@ const utils = {
     async submitRegister(school, info) {
       const account = await this.tronWeb.trx.getAccount();
       await this.regContract.register(school, info).send();
-      await this.certContract.mint(account.address, info, this.tronWeb.sha3(info, false)).send();
+      const certInfo = info + ';' + school;
+      await this.certContract.mint(account.address, certInfo, this.tronWeb.sha3(certInfo, false)).send();
       return true;
     },
     async getCertToken() {
       const account = await this.tronWeb.trx.getAccount();
       const tokenId = await this.certContract.addressCert(account.address).call();
-      console.log(tokenId);
       const certToken = await this.certContract.certs(tokenId).call();
       const certHash = await this.certContract.certsHash(tokenId).call();
       const certArray = certToken.split(';');
@@ -45,6 +45,7 @@ const utils = {
         userId: certArray[1],
         userType: certArray[2],
         major: certArray[3],
+        school: certArray[4],
         certHash: certHash
       }
       return certInfo;
