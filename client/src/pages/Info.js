@@ -88,9 +88,9 @@ class Info extends Component {
     console.log(this.state, '------InputValue');
     this.props.submitInfo({
       userName: this.state.userName,
-      userId: this.state.userName,
-      userType: this.state.userName,
-      major: this.state.userName
+      userId: this.state.userId,
+      userType: this.state.userType,
+      major: this.state.major
     });
     this.context.router.history.push('/processing');
 

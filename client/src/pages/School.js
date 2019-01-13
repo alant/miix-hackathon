@@ -15,6 +15,11 @@ import avatar2 from '../images/2.jpg';
 import avatar3 from '../images/3.jpg';
 import avatar4 from '../images/4.jpg';
 import avatar5 from '../images/5.jpg';
+import avatar6 from '../images/6.jpg';
+import avatar7 from '../images/7.jpg';
+import avatar8 from '../images/8.jpg';
+import avatar9 from '../images/9.jpg';
+import avatar10 from '../images/10.jpg';
 
 const styles = theme => ({
   root: {
@@ -99,7 +104,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(4)}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar4} />
           </ListItemAvatar>
@@ -115,7 +120,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(5)}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar5} />
           </ListItemAvatar>
@@ -127,6 +132,86 @@ class School extends Component {
                   辽宁省
                 </Typography>
                 {" - 沈阳市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(6)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar6} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="广州美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  广东省
+                </Typography>
+                {" - 广州市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(7)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar7} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="湖北美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  湖北省
+                </Typography>
+                {" - 武汉市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(8)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar8} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="天津美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  天津市
+                </Typography>
+                {" - 天津市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(9)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar9} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="清华大学美术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  北京市
+                </Typography>
+                {" - 北京市"}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(10)}>
+          <ListItemAvatar>
+            <Avatar alt="Remy Sharp" src={avatar10} />
+          </ListItemAvatar>
+          <ListItemText
+            primary="南京艺术学院"
+            secondary={
+              <React.Fragment>
+                <Typography component="span" className={classes.inline} color="textPrimary">
+                  江苏省
+                </Typography>
+                {" - 南京市"}
               </React.Fragment>
             }
           />
