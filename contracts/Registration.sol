@@ -1,7 +1,7 @@
 pragma solidity ^0.4.23;
 
 contract ICert{
-    function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash) public;
+    function mint(address _to, string _registerInfo, string _hash) public;
 }
 contract Registration {
     event RegistOrgEvent(
@@ -121,7 +121,7 @@ contract Registration {
         
         emit RegistEvent(eventId,targets[eventId].name,msg.sender);
         //TODO fix hash
-        ICert(receiptAddress).mint(msg.sender,certCount,registInfo,targets[eventId].admin,"mock hash");
+        ICert(receiptAddress).mint(msg.sender,registInfo,"mock hash");
     }
 
     function getEventRegistor(uint eventId)public view returns (string){
