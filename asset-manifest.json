@@ -1,9 +1,9 @@
 {
   "main.css": "/miix-hackathon/static/css/main.23110daf.chunk.css",
-  "main.js": "/miix-hackathon/static/js/main.3baa735a.chunk.js",
-  "main.js.map": "/miix-hackathon/static/js/main.3baa735a.chunk.js.map",
-  "static/js/1.31a13e79.chunk.js": "/miix-hackathon/static/js/1.31a13e79.chunk.js",
-  "static/js/1.31a13e79.chunk.js.map": "/miix-hackathon/static/js/1.31a13e79.chunk.js.map",
+  "main.js": "/miix-hackathon/static/js/main.b020aede.chunk.js",
+  "main.js.map": "/miix-hackathon/static/js/main.b020aede.chunk.js.map",
+  "static/js/1.2323d2ef.chunk.js": "/miix-hackathon/static/js/1.2323d2ef.chunk.js",
+  "static/js/1.2323d2ef.chunk.js.map": "/miix-hackathon/static/js/1.2323d2ef.chunk.js.map",
   "runtime~main.js": "/miix-hackathon/static/js/runtime~main.679e2c39.js",
   "runtime~main.js.map": "/miix-hackathon/static/js/runtime~main.679e2c39.js.map",
   "static/media/pic_result_waiting.png": "/miix-hackathon/static/media/pic_result_waiting.47700839.png",
@@ -22,6 +22,6 @@
   "static/media/pic_welcome_bg.png": "/miix-hackathon/static/media/pic_welcome_bg.cd9c7c90.png",
   "static/css/main.23110daf.chunk.css.map": "/miix-hackathon/static/css/main.23110daf.chunk.css.map",
   "index.html": "/miix-hackathon/index.html",
-  "precache-manifest.5df00bc9c03ddb0c0316548a61afc20b.js": "/miix-hackathon/precache-manifest.5df00bc9c03ddb0c0316548a61afc20b.js",
+  "precache-manifest.7dc20debdb878f35605f2a2da1820cc4.js": "/miix-hackathon/precache-manifest.7dc20debdb878f35605f2a2da1820cc4.js",
   "service-worker.js": "/miix-hackathon/service-worker.js"
 }
