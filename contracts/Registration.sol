@@ -127,6 +127,14 @@ contract Registration {
     function getEventRegistor(uint eventId)public view returns (string){
         return targets[eventId].registInfo[msg.sender];
     }
+    
+    function register(uint eventId, string registInfo) public {
+        // if (users[msg.sender].id == 0){
+        //     userCount = userCount + 1;
+        // }
+        registry[msg.sender] = registInfo;
+        emit RegistEvent(eventId,"hackathon placeholder",msg.sender);
+    }
 
 }
 

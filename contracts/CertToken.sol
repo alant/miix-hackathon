@@ -39,7 +39,7 @@ contract CertToken {
         tokenOwner[tokenId_] = _to;
         Cert memory _cert = Cert({registerInfo:_registerInfo, tokenId:tokenId_, issuer:msg.sender, owner:_to, registerInfoHash:_hash});
         certs[tokenId_] = _cert;
-        addressCert[_to] = _tokenId;
+        addressCert[_to] = tokenId_;
         emit Mint(_to, tokenId_, _registerInfo, msg.sender, _hash);
     }
 
