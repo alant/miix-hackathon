@@ -24,6 +24,11 @@ const styles = theme => ({
     fontSize: theme.spacing.unit * 2,
     color: '#889399'
   },
+  hash: {
+    marginTop: theme.spacing.unit * 2,
+    fontSize: theme.spacing.unit * 1.5,
+    color: '#889399'
+  },
   button: {
     margin: theme.spacing.unit,
     marginTop: theme.spacing.unit * 8,
@@ -39,17 +44,17 @@ const styles = theme => ({
 });
 
 class Success extends Component {
-  componentDidMount() {
-    this.fetchToken();
-  }
-  fetchToken: Function = async () => {
-    await Utils.sleep(2000);
-    const certToken = await Utils.getCertToken();
-    console.log(certToken);
-    this.props.gotCertValue(certToken);
-  }
+  // componentDidMount() {
+  //   this.fetchToken();
+  // }
+  // fetchToken: Function = async () => {
+  //   await Utils.sleep(2000);
+  //   const certToken = await Utils.getCertToken();
+  //   console.log(certToken);
+  //   this.props.gotCertValue(certToken);
+  // }
   render() {
-    const { classes, certInfo } = this.props;
+    const { classes } = this.props;
     const SuccessBtn = withRouter(({ history }) => (
         <Button variant="contained" className={ classes.button } onClick={() => { history.push('/cert') }}>
           查看准考证
@@ -60,9 +65,6 @@ class Success extends Component {
          <img src={bg} alt="报名成功！" style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography align="center" noWrap className={classes.title}>
           恭喜您报名成功！
-        </Typography>
-        <Typography align="center" noWrap className={classes.intro}>
-          准考证哈希编码： { certInfo.certHash }
         </Typography>
         <SuccessBtn />
       </div>

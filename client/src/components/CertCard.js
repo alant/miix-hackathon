@@ -7,9 +7,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import QRCode from 'qrcode.react';
 import Typography from '@material-ui/core/Typography';
-
-import qrcode from '../images/qrcode.png';
 
 const styles = {
   card: {
@@ -25,19 +24,19 @@ function CertCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={require('../images/1.jpg')}
+        <img
+          src={require(`../images/${certInfo.school}.jpg`)}
           title="准考证"
+          alt="学校"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             { certInfo.name }
           </Typography>
-          <Typography component="p">
-            { certInfo.certHash }
+          <Typography gutterBottom>
+            { certInfo.major }
           </Typography>
-          <img alt="qrcode" src={qrcode} style={{width:"50%",height:"50%",marginBottom:"30px",marginTop:"50px"}}/>
+          <QRCode value={ certInfo.certHash } size="128"/>
         </CardContent>
       </CardActionArea>
       <CardActions>
