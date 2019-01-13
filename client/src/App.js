@@ -43,8 +43,8 @@ const styles = theme => ({
 })
 
 const ListBtn = withRouter(({ history }) => (
-  <Button color="inherit" onClick={() => { history.push('/studentlist') }}>
-    浏览名单
+  <Button color="inherit" onClick={() => { history.push('/cert') }}>
+    准考证
   </Button>
 ))
 
@@ -138,7 +138,7 @@ class App extends Component {
       }
 
       Utils.setTronWeb(window.tronWeb);
-      
+
       // let data = await Utils.fetchStoredData();
       // data = data.toNumber()
       // console.log("===> storedData: ", data);
@@ -156,7 +156,7 @@ class App extends Component {
           <AppBar position="static" color="default" className={classes.appBar}>
             <Toolbar>
               <Typography variant="h6" color="inherit" align="left" noWrap className={classes.toolbarTitle}>
-                艺考报名宝
+                波报名
               </Typography>
               <HomeBtn />
               <ListBtn />
