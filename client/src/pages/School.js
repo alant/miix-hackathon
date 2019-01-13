@@ -45,9 +45,9 @@ class School extends Component {
     }).isRequired
   };
 
-  handleClick = (schoolId) => {
-    console.log("===> clicked on school: ", schoolId);
-    this.props.selectSchool(schoolId);
+  handleClick = (schoolId, schoolName) => {
+    console.log("===> clicked on school <==: ", schoolId, schoolName);
+    this.props.selectSchool(schoolId, schoolName);
     this.context.router.history.push('/info')
   }
 
@@ -56,7 +56,7 @@ class School extends Component {
 
     return (
       <List className={classes.root}>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(1)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(1, "中央美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar1} />
           </ListItemAvatar>
@@ -72,7 +72,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(2)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(2, "中国美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar2} />
           </ListItemAvatar>
@@ -88,7 +88,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(3, "西安美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar3} />
           </ListItemAvatar>
@@ -104,7 +104,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(4)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(4, "四川美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar4} />
           </ListItemAvatar>
@@ -120,7 +120,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(5)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(5, "鲁迅美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar5} />
           </ListItemAvatar>
@@ -136,7 +136,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(6)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(6, "广州美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar6} />
           </ListItemAvatar>
@@ -152,7 +152,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(7)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(7, "湖北美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar7} />
           </ListItemAvatar>
@@ -168,7 +168,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(8)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(8, "天津美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar8} />
           </ListItemAvatar>
@@ -184,7 +184,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(9)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(9, "清华大学美术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar9} />
           </ListItemAvatar>
@@ -200,7 +200,7 @@ class School extends Component {
             }
           />
         </ListItem>
-        <ListItem alignItems="flex-start" onClick={() => this.handleClick(10)}>
+        <ListItem alignItems="flex-start" onClick={() => this.handleClick(10, "南京艺术学院")}>
           <ListItemAvatar>
             <Avatar alt="Remy Sharp" src={avatar10} />
           </ListItemAvatar>
@@ -233,7 +233,7 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectSchool: (schoolId) => dispatch({ type: "SCHOOL_SELECTED", school: schoolId })
+    selectSchool: (schoolId, sName) => dispatch({ type: "SCHOOL_SELECTED", school: schoolId, schoolName: sName})
   };
 };
 

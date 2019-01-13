@@ -162,7 +162,7 @@ class Info extends Component {
             <TextField
               disabled
               type="text"
-              defaultValue={this.state.schoolName}
+              value={this.props.schoolName}
               placeholder="身份证号"
               label="报考学校"
               className={classes.input_id}
@@ -236,7 +236,8 @@ Info.propTypes = {
 
 const mapStateToProps = function (state) {
   return {
-    submitInfo: state.dappReducer.submitInfo
+    submitInfo: state.dappReducer.submitInfo,
+    schoolName: state.dappReducer.schoolSelectedName
   }
 }
 
