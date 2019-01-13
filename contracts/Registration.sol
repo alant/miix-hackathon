@@ -124,9 +124,9 @@ contract Registration {
         ICert(receiptAddress).mint(msg.sender,certCount,registInfo,targets[eventId].admin,"mock hash");
     }
 
-     function getEventRegistor(uint eventId)public view returns (string){
-         return targets[eventId].registInfo[msg.sender];
-     }
+    function getEventRegistor(uint eventId)public view returns (string){
+        return targets[eventId].registInfo[msg.sender];
+    }
 
 }
 
