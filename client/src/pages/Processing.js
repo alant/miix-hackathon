@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
@@ -24,11 +25,23 @@ const styles = theme => ({
 });
 
 class Processing extends Component {
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
+        replace: PropTypes.func.isRequired
+      }).isRequired,
+      staticContext: PropTypes.object
+    }).isRequired
+  };
+  componentDidMount() {
+    console.log(this.props.submitInfo);
+  }
   render() {
     const { classes } = this.props;
     return (
       <div>
-         <img src={bg} style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
+         <img src={bg} alt="确认信息中" style={{width:"300px",height:"240px",marginBottom:"30px",marginTop:"50px"}}/>
         <Typography align="center" noWrap className={classes.title}>
           报名信息确认中...
         </Typography>
@@ -41,9 +54,8 @@ class Processing extends Component {
 }
 
 const mapStateToProps = function(state) {
-  console.log(state);
   return {
-    certInfo: state.dappReducer.certInfo
+    submitInfo: state.dappReducer.submitInfo
   }
 }
 

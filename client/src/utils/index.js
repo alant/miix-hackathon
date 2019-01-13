@@ -1,6 +1,6 @@
 import Registration from '../contracts/RegistrationSlim.json';
 
-const contractAddress = '41d6523673d21b75b461ef6bb29cbdffb57b90db2a';
+const contractAddress = '41f9f8557ba3d56a35ee021821fdaa097a93e2f477';
 
 const utils = {
     tronWeb: false,
