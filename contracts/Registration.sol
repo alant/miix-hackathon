@@ -1,5 +1,8 @@
 pragma solidity ^0.4.23;
 
+contract ICert{
+    function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash) public;
+}
 contract Registration {
     event RegistOrgEvent(
         uint id,
@@ -43,18 +46,22 @@ contract Registration {
         //存储加密后的个人信息 encryto(json), 将来可细化，复用，细力度的直接授权给组织方，而不用每次填写
         //string info
         uint[] events; //个人参加的活动
+        uint[] certs; //个人参加的活动
     }
 
     address public owner;
     address receiptAddress;
     Organisation[] public orgs;
-    EventToSignIn[] public events;
+    EventToSignIn[] public targets;
     mapping(address => User) users;
-    uint userCount;
+    uint public userCount;//used for user id
+    uint public certCount;//used for certId when minting
     mapping(address => string) public registry;
-
-    constructor() public {
+    constructor(address receiptContract) public {
+        receiptAddress = receiptContract;
         owner = msg.sender;
+
+        //初始化数据，仅在此Demo中，
     }
 
     modifier onlyAdmin() {
@@ -69,7 +76,6 @@ contract Registration {
     }
 
     function registerOrg(string name, string info) public onlyAdmin {
-        require(owner == msg.sender);
         uint id = orgs.length;
         orgs.push(Organisation({
             id: id,
@@ -82,8 +88,8 @@ contract Registration {
 
     function addEvent(string name, string info, string pubKey, uint orgId) public onlyAdmin {
         require(msg.sender == orgs[orgId].admin);
-        uint id = events.length;
-        events.push(EventToSignIn({
+        uint id = targets.length;
+        targets.push(EventToSignIn({
             id: id,
             name: name,
             info: info,
@@ -103,22 +109,32 @@ contract Registration {
             userCount = userCount + 1;
             users[msg.sender] = User({
                 id: userCount,
-                events: new uint[](0)
+                events: new uint[](0),
+                certs: new uint[](0)
             });
         }
+        certCount = certCount+1;
         users[msg.sender].events.push(eventId);
-        events[eventId].registor.push(msg.sender);
-        events[eventId].registInfo[msg.sender] = (registInfo);
+        users[msg.sender].events.push(certCount);
+        targets[eventId].registor.push(msg.sender);
+        targets[eventId].registInfo[msg.sender] = registInfo;
         
-        emit RegistEvent(eventId,events[eventId].name,msg.sender);
+        emit RegistEvent(eventId,targets[eventId].name,msg.sender);
+        //TODO fix hash
+        ICert(receiptAddress).mint(msg.sender,certCount,registInfo,targets[eventId].admin,"mock hash");
     }
 
-    function register(string registInfo) public {
-        if (users[msg.sender].id == 0){
-            userCount = userCount + 1;
-        }
+    function getEventRegistor(uint eventId)public view returns (string){
+        return targets[eventId].registInfo[msg.sender];
+    }
+    
+    function register(uint eventId, string registInfo) public {
+        // if (users[msg.sender].id == 0){
+        //     userCount = userCount + 1;
+        // }
         registry[msg.sender] = registInfo;
-        emit RegistSuccess(msg.sender, registInfo);
+        emit RegistEvent(eventId,"hackathon placeholder",msg.sender);
     }
 
 }
+
