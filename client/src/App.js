@@ -156,7 +156,7 @@ class App extends Component {
           <AppBar position="static" color="default" className={classes.appBar}>
             <Toolbar>
               <Typography variant="h6" color="inherit" align="left" noWrap className={classes.toolbarTitle}>
-                艺考报名宝
+                波报名
               </Typography>
               <HomeBtn />
               <ListBtn />
