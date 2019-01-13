@@ -24,16 +24,19 @@ function CertCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={require('../images/1.jpg')}
+        <img
+          src={require(`../images/${certInfo.school}.jpg`)}
           title="准考证"
+          alt="学校"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             { certInfo.name }
           </Typography>
-          <QRCode value={ certInfo.certHash } size="256"/>
+          <Typography gutterBottom>
+            { certInfo.major }
+          </Typography>
+          <QRCode value={ certInfo.certHash } size="128"/>
         </CardContent>
       </CardActionArea>
       <CardActions>

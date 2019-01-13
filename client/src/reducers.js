@@ -17,13 +17,14 @@ const initialState = {
     userId: 'ID',
     userType: '学历',
     major: '专业',
-    certHash: '2311231231231313'
+    school: 1,
+    certHash: '27596b52aecd2adbcce7fdd8ba9b6227c0f2f077208af3f3fcd6e03ee4e768d7'
   },
   submitInfo: {
 
   },
-  schoolSelected: 0,
-  schoolSelectedName: "清华大学"
+  schoolSelected: 1,
+  schoolSelectedName: "中央美术学院"
 };
 
 function dappReducer(state = initialState, action) {

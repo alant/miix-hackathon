@@ -20,9 +20,10 @@ class Cert extends Component {
   }
   fetchToken: Function = async () => {
     await Utils.sleep(1000);
-    const certToken = await Utils.getCertToken();
-    console.log(certToken);
-    this.props.gotCertValue(certToken);
+    const certInfo = await Utils.getCertToken();
+    console.log(certInfo);
+    certInfo.school = this.props.school;
+    this.props.gotCertValue(certInfo);
   }
   render() {
     const { classes, certInfo } = this.props;
@@ -47,7 +48,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = function(state) {
   return {
-    certInfo: state.dappReducer.certInfo
+    certInfo: state.dappReducer.certInfo,
+    school: state.dappReducer.schoolSelected
   }
 }
 
