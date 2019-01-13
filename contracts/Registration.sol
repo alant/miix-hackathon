@@ -120,7 +120,7 @@ contract Registration {
         targets[eventId].registInfo[msg.sender] = registInfo;
         
         emit RegistEvent(eventId,targets[eventId].name,msg.sender);
-        //TODO fix hash
+        //TODO add hash for verification
         ICert(receiptAddress).mint(msg.sender,registInfo,"mock hash");
     }
 

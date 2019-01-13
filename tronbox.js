@@ -7,7 +7,7 @@ module.exports = {
       privateKey: process.env.LocalPK,
       consume_user_resource_percent: 30,
       fee_limit: 1e9,
-      origin_energy_limit: 1e7,
+      origin_energy_limit: 1e6,
 
       // Requires TronBox 2.1.9+ and Tron Quickstart 1.1.16+
       fullHost: "http://127.0.0.1:8090",
@@ -49,7 +49,7 @@ module.exports = {
       privateKey: process.env.PK,
       consume_user_resource_percent: 1,
       fee_limit: 1e9,
-      origin_energy_limit: 1e7,
+      origin_energy_limit: 1e6,
 
       // tronbox 2.1.9+
       fullHost: "https://api.shasta.trongrid.io",
