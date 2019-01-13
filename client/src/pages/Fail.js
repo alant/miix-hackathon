@@ -7,8 +7,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
 import bg from '../images/pic_result_fail.png';
 
-import Utils from '../utils';
-
 const styles = theme => ({
   root: {
     width: '100%',
