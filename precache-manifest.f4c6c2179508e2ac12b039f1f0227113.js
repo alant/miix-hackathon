@@ -4,12 +4,12 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/2.5672c2b1.jpg"
   },
   {
-    "revision": "f16c1d8060f75e8ebd5b",
+    "revision": "0d31c46e83c3f53cc755",
     "url": "/miix-hackathon/static/css/main.b442a28d.chunk.css"
   },
   {
-    "revision": "9d588802df6aaaadb5dd",
-    "url": "/miix-hackathon/static/js/1.9d588802.chunk.js"
+    "revision": "807bcbfa569a79ffb878",
+    "url": "/miix-hackathon/static/js/1.807bcbfa.chunk.js"
   },
   {
     "revision": "679e2c39302c8d24219d",
@@ -36,8 +36,8 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/pic_welcome_bg.cd9c7c90.png"
   },
   {
-    "revision": "f16c1d8060f75e8ebd5b",
-    "url": "/miix-hackathon/static/js/main.f16c1d80.chunk.js"
+    "revision": "0d31c46e83c3f53cc755",
+    "url": "/miix-hackathon/static/js/main.0d31c46e.chunk.js"
   },
   {
     "revision": "7a9fa27d13e990cdaad700a9175efc91",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/miix-hackathon/static/media/10.db36c12f.jpg"
   },
   {
-    "revision": "cccd791c64182c576a5fdedebc2b860b",
+    "revision": "e33bf95ec4c9d49195ef1342b43768f1",
     "url": "/miix-hackathon/index.html"
   }
 ];
