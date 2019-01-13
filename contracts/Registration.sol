@@ -1,5 +1,8 @@
 pragma solidity ^0.4.23;
 
+contract ICert{
+    function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash) public;
+}
 contract Registration {
     event RegistOrgEvent(
         uint id,
@@ -43,6 +46,7 @@ contract Registration {
         //存储加密后的个人信息 encryto(json), 将来可细化，复用，细力度的直接授权给组织方，而不用每次填写
         //string info
         uint[] events; //个人参加的活动
+        uint[] certs; //个人参加的活动
     }
 
     address public owner;
@@ -50,11 +54,14 @@ contract Registration {
     Organisation[] public orgs;
     EventToSignIn[] public targets;
     mapping(address => User) users;
-    uint userCount;
+    uint public userCount;//used for user id
+    uint public certCount;//used for certId when minting
     mapping(address => string) public registry;
     constructor(address receiptContract) public {
         receiptAddress = receiptContract;
         owner = msg.sender;
+
+        //初始化数据，仅在此Demo中，
     }
 
     modifier onlyAdmin() {
@@ -102,20 +109,24 @@ contract Registration {
             userCount = userCount + 1;
             users[msg.sender] = User({
                 id: userCount,
-                events: new uint[](0)
+                events: new uint[](0),
+                certs: new uint[](0)
             });
         }
+        certCount = certCount+1;
         users[msg.sender].events.push(eventId);
+        users[msg.sender].events.push(certCount);
         targets[eventId].registor.push(msg.sender);
         targets[eventId].registInfo[msg.sender] = registInfo;
         
         emit RegistEvent(eventId,targets[eventId].name,msg.sender);
+        //TODO fix hash
+        ICert(receiptAddress).mint(msg.sender,certCount,registInfo,targets[eventId].admin,"mock hash");
     }
 
-    // function listEventRegistor(uint eventId,)
+     function getEventRegistor(uint eventId)public view returns (string){
+         return targets[eventId].registInfo[msg.sender];
+     }
 
 }
 
-contract ICommittee{
-    function mint(address _to, uint256 _tokenId, string _registerInfo, address _issuer, string _hash);
-}

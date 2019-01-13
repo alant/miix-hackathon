@@ -4,9 +4,9 @@ module.exports = {
   networks: {
     development: {
 // For trontools/quickstart docker image
-      privateKey: 'ef4c68642691a688a8be8ffc7971cface16a1179daaa5923984d494553fc0110',
+      privateKey: 'da146374a75310b9666e834ee4ad0866d6f4035967bfc76217c5a495fff9f0d0',
       consume_user_resource_percent: 30,
-      fee_limit: 1e8,
+      fee_limit: 1e9,
       origin_energy_limit: 1e7,
 
       // Requires TronBox 2.1.9+ and Tron Quickstart 1.1.16+
