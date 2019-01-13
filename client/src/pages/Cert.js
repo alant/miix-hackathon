@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import Typography from '@material-ui/core/Typography';
 import CertCard from '../components/CertCard';
 import { withStyles } from '@material-ui/core/styles';
+import Utils from '../utils';
 
 const styles = theme => ({
   root: {
@@ -14,6 +15,15 @@ const styles = theme => ({
 });
 
 class Cert extends Component {
+  componentDidMount() {
+    this.fetchToken();
+  }
+  fetchToken: Function = async () => {
+    await Utils.sleep(1000);
+    const certToken = await Utils.getCertToken();
+    console.log(certToken);
+    this.props.gotCertValue(certToken);
+  }
   render() {
     const { classes, certInfo } = this.props;
     return (
@@ -29,10 +39,16 @@ Cert.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    gotCertValue: (value) => dispatch({ type: "GOT_CERT_VALUE", certInfo: value })
+  };
+}
+
 const mapStateToProps = function(state) {
   return {
     certInfo: state.dappReducer.certInfo
   }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(Cert));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Cert));
