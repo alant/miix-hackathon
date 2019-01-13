@@ -28,7 +28,8 @@ const initialState = {
   submitInfo: {
 
   },
-  schoolSelected: 0
+  schoolSelected: 0,
+  schoolSelectedName: "清华大学"
 };
 
 function dappReducer(state = initialState, action) {
@@ -42,7 +43,7 @@ function dappReducer(state = initialState, action) {
     case SUBMIT_INFO:
       return { ...state, submitInfo: action.info }
     case SCHOOL_SELECTED:
-      return { ...state, schoolSelected: action.school};
+      return { ...state, schoolSelected: action.school, schoolSelectedName: action.schoolName};
     default:
       return state;
   }
