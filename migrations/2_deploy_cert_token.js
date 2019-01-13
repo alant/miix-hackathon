@@ -1,10 +1,9 @@
-var CertToken = artifacts.require("./CertToken.sol");
-var Registration = artifacts.require("./Registration.sol");
+// var CertToken = artifacts.require("./CertToken.sol");
+var CertToken = artifacts.require("./CertTokenSlim.sol");
+var Registration = artifacts.require("./RegistrationSlim.sol");
 
 module.exports = function(deployer) {
   // deployer.deploy(CertToken);
-  deployer.deploy(CertToken).then(
-    function(){
-      deployer.deploy(Registration(CertToken.address));
-    });
+  deployer.deploy(CertToken);
+  deployer.deploy(Registration);
 };

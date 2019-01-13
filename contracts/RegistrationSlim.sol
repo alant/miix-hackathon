@@ -38,12 +38,12 @@ contract RegistrationSlim {
         receiptAddress = receipt;
     }
 
-    function register(string registInfo) public {
+    function register(uint eventId, string registInfo) public {
         // if (users[msg.sender].id == 0){
         //     userCount = userCount + 1;
         // }
         registry[msg.sender] = registInfo;
-        emit RegistSuccess(msg.sender, registInfo);
+        emit RegistEvent(eventId,"hackathon placeholder",msg.sender);
     }
 
 }
