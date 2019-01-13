@@ -9,6 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import qrcode from '../images/qrcode.png';
+
 const styles = {
   card: {
     maxWidth: 345,
@@ -35,6 +37,7 @@ function CertCard(props) {
           <Typography component="p">
             { certInfo.certHash }
           </Typography>
+          <img alt="qrcode" src={qrcode} style={{width:"50%",height:"50%",marginBottom:"30px",marginTop:"50px"}}/>
         </CardContent>
       </CardActionArea>
       <CardActions>
