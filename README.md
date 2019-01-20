@@ -1,4 +1,4 @@
-boiler plate for tron dapp development
+## [slides 中文](https://pan.baidu.com/s/1de2v3TmlywiOcHm_ghkVYw)
 
 ## build steps
 Make sure save your private key in .env file: PK=be821xxxxxx

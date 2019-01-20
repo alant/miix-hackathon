@@ -24,7 +24,7 @@ function CertCard(props) {
     <Card className={classes.card}>
       <CardActionArea>
         <img
-          src={require(`../images/${certInfo.school}.jpg`)}
+          src={require(`../images/${certInfo.school ? certInfo.school : '1'}.jpg`)}
           title="准考证"
           alt="学校"
         />

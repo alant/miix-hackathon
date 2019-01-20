@@ -207,7 +207,7 @@ class Info extends Component {
                 </div>
                 <div style={{ marginTop: "15px" }}>
                   <label style={{ fontSize: "16px", color: "#889399", flex: "1" }}>报考学校:</label>
-                  <label style={{ fontSize: "16px", color: "#333333", textAlign: "right", marginLeft:"10px",fontWeight:"blod"}}>{this.state.schoolName}</label>
+                  <label style={{ fontSize: "16px", color: "#333333", textAlign: "right", marginLeft:"10px",fontWeight:"blod"}}>{this.props.schoolName}</label>
                 </div>
                 <div style={{ marginTop: "15px" }}>
                   <label style={{ fontSize: "16px", color: "#889399", flex: "1" }}>报考专业:</label>
